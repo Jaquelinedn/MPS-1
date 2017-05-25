@@ -26,4 +26,12 @@ public class ControleProduto {
             material_consumo.put(((Materiais_Consumo)p).getTipo(), (Materiais_Consumo)p);
         }
     }
+    
+    public Materiais_Permanente pesquisaPermanente(String tombamento){
+        return material_permanente.get(tombamento);
+    }
+    
+    public Materiais_Consumo pesquisaConsumo(String tipo){
+        return material_consumo.get(tipo);
+    }
 }
