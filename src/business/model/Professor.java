@@ -15,7 +15,7 @@ public class Professor extends Funcionario {
     private String titulo;
     private String cargo;
 
-    public Professor(String titulo, String cargo, String nome, String siape, String funcao, Date data_nascimento) {
+    public Professor(String titulo, String cargo, String nome, String siape, String funcao, String data_nascimento) {
         super(nome, siape, funcao, data_nascimento);
         this.titulo = titulo;
         this.cargo = cargo;

@@ -5,8 +5,6 @@
  */
 package business.model;
 
-import java.util.Date;
-
 /**
  *
  * @author James
@@ -15,9 +13,9 @@ public class Funcionario {
     private String nome;
     private String siape;
     private String funcao;
-    private Date data_nascimento;
+    private String data_nascimento;
 
-    public Funcionario(String nome, String siape, String funcao, Date data_nascimento) {
+    public Funcionario(String nome, String siape, String funcao, String data_nascimento) {
         this.nome = nome;
         this.siape = siape;
         this.funcao = funcao;
@@ -50,11 +48,11 @@ public class Funcionario {
         this.funcao = funcao;
     }
 
-    public Date getData_nascimento() {
+    public String getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(Date data_nascimento) {
+    public void setData_nascimento(String data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
     
