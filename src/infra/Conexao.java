@@ -34,7 +34,7 @@ public class Conexao {
             stmt = c.createStatement();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
-            c = null;
+            conexao = null;
             throw new DatabaseException("Não foi possível conectar ao Banco de Dados!");
         }
     }
