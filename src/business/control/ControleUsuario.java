@@ -28,9 +28,9 @@ public class ControleUsuario {
         return func.get(siape);
     }
     
-    public void removeUsuario(String siape){
+    public void removeUsuario(String siape) throws UsuarioExistenteException{
         if(!func.containsKey(siape)){
-            //Lança exception
+            throw new UsuarioExistenteException("O número de SIAPE inserido não existe no sistema!");
         }
         func.remove(siape);
     }
