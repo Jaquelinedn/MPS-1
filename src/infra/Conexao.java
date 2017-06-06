@@ -8,7 +8,6 @@ package infra;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.exceptions.DatabaseException;
@@ -20,29 +19,25 @@ import util.exceptions.DatabaseException;
  */
 public class Conexao {
 
-    private Connection c;
-    private Statement stmt;
+    private static Connection c;
     private static final String USER = "projetomps";
     private static final String PASSWORD = "projetotrabalhoso";
-    private static Conexao connected = new Conexao();
 
     private Conexao(){
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", USER, PASSWORD);
             c.setAutoCommit(false);
-            
-            stmt = c.createStatement();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
-            connected = null;
+            c = null;
         }
     }
-    
-    public static Conexao obterConexao() throws DatabaseException{
-        if(connected == null){
-            throw new DatabaseException("Não foi possível conectar-se a base de dados");
+
+    public static Connection getConexao() throws DatabaseException {
+        if(c == null){
+            throw new DatabaseException("Não foi possível conectar ao Banco de Dados!");
         }
-        return connected;
+        return c;
     }
 }
